@@ -113,10 +113,14 @@ C:\Users\Matias\source\repos\DemoEFCoreWinforms\DemoEFCoreWinforms\bin\Debug\Mic
 C:\Users\Matias\source\repos\DemoEFCoreWinforms\DemoEFCoreWinforms\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\Matias\source\repos\DemoEFCoreWinforms\DemoEFCoreWinforms\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\Matias\source\repos\DemoEFCoreWinforms\DemoEFCoreWinforms\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+<<<<<<< HEAD
 C:\Users\Matias\source\repos\DemoEFCoreWinforms\DemoEFCoreWinforms\bin\Debug\Microsoft.Extensions.Logging.Configuration.dll
 C:\Users\Matias\source\repos\DemoEFCoreWinforms\DemoEFCoreWinforms\bin\Debug\Microsoft.Extensions.Logging.Console.dll
 C:\Users\Matias\source\repos\DemoEFCoreWinforms\DemoEFCoreWinforms\bin\Debug\Microsoft.Extensions.Logging.dll
 C:\Users\Matias\source\repos\DemoEFCoreWinforms\DemoEFCoreWinforms\bin\Debug\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+=======
+C:\Users\Matias\source\repos\DemoEFCoreWinforms\DemoEFCoreWinforms\bin\Debug\Microsoft.Extensions.Logging.dll
+>>>>>>> master
 C:\Users\Matias\source\repos\DemoEFCoreWinforms\DemoEFCoreWinforms\bin\Debug\Microsoft.Extensions.Options.dll
 C:\Users\Matias\source\repos\DemoEFCoreWinforms\DemoEFCoreWinforms\bin\Debug\Microsoft.Extensions.Primitives.dll
 C:\Users\Matias\source\repos\DemoEFCoreWinforms\DemoEFCoreWinforms\bin\Debug\Microsoft.Identity.Client.dll
@@ -145,10 +149,14 @@ C:\Users\Matias\source\repos\DemoEFCoreWinforms\DemoEFCoreWinforms\bin\Debug\Mic
 C:\Users\Matias\source\repos\DemoEFCoreWinforms\DemoEFCoreWinforms\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
 C:\Users\Matias\source\repos\DemoEFCoreWinforms\DemoEFCoreWinforms\bin\Debug\Microsoft.Extensions.Logging.xml
 C:\Users\Matias\source\repos\DemoEFCoreWinforms\DemoEFCoreWinforms\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+<<<<<<< HEAD
 C:\Users\Matias\source\repos\DemoEFCoreWinforms\DemoEFCoreWinforms\bin\Debug\Microsoft.Extensions.Logging.Configuration.xml
 C:\Users\Matias\source\repos\DemoEFCoreWinforms\DemoEFCoreWinforms\bin\Debug\Microsoft.Extensions.Logging.Console.xml
 C:\Users\Matias\source\repos\DemoEFCoreWinforms\DemoEFCoreWinforms\bin\Debug\Microsoft.Extensions.Options.xml
 C:\Users\Matias\source\repos\DemoEFCoreWinforms\DemoEFCoreWinforms\bin\Debug\Microsoft.Extensions.Options.ConfigurationExtensions.xml
+=======
+C:\Users\Matias\source\repos\DemoEFCoreWinforms\DemoEFCoreWinforms\bin\Debug\Microsoft.Extensions.Options.xml
+>>>>>>> master
 C:\Users\Matias\source\repos\DemoEFCoreWinforms\DemoEFCoreWinforms\bin\Debug\Microsoft.Extensions.Primitives.xml
 C:\Users\Matias\source\repos\DemoEFCoreWinforms\DemoEFCoreWinforms\bin\Debug\Microsoft.Identity.Client.xml
 C:\Users\Matias\source\repos\DemoEFCoreWinforms\DemoEFCoreWinforms\bin\Debug\System.Buffers.xml
