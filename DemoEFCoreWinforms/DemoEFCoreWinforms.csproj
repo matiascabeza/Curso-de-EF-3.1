@@ -161,6 +161,10 @@
     <Compile Include="Migrations\20200226143638_Initial.designer.cs">
       <DependentUpon>20200226143638_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20200226200404_StudentDateBirth.cs" />
+    <Compile Include="Migrations\20200226200404_StudentDateBirth.designer.cs">
+      <DependentUpon>20200226200404_StudentDateBirth.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\ApplicationDbContextModelSnapshot.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Student.cs" />
