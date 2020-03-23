@@ -8,7 +8,7 @@ namespace EFCore_Mod3
 {
     class Program
     {
-        static void Main(string[] args) { FilterLevelModel(); }
+        static void Main(string[] args) { PaginationSkipAndTake(); }
 
         static void InsertRegistros()
         {
@@ -187,6 +187,19 @@ namespace EFCore_Mod3
             {
                 var studens1 = context.Students.ToList();
                 var studens2 = context.Students.IgnoreQueryFilters().ToList();
+            }
+        }
+
+        static void PaginationSkipAndTake()
+        {
+            //Paginacion de registros 
+            using (var context = new ApplicationDbContext())
+            {
+                var studens1 = context.Students.Skip(3).Take(5).ToList();
+                var pagination = 1;
+                var show = 1;
+
+                var studens2 = context.Students.Skip((pagination - 1) * show).Take(show).ToList();
             }
         }
     }
