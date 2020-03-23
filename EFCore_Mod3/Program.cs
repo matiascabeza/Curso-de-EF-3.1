@@ -2,13 +2,14 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 
 namespace EFCore_Mod3
 {
     class Program
     {
-        static void Main(string[] args) { GroupByRegistry(); }
+        static void Main(string[] args) { FromSqRawlRegistry(); }
 
         static void InsertRegistros()
         {
@@ -216,6 +217,18 @@ namespace EFCore_Mod3
                     .GroupBy(x => new { x.DateBirth.Year })
                     .Where( x=> x.Count() >= 2)
                     .Select(x => new { x.Key, Count = x.Count() }).ToList();
+            }
+        }
+
+        static void FromSqRawlRegistry()
+        {
+            var Id = 4;
+            //Reporte de registros con GroupBy
+            using (var context = new ApplicationDbContext())
+            {
+                var report1 = context.Students
+                    .FromSqlRaw(@"SELECT * FROM Students" )
+                    .FirstOrDefault();
             }
         }
     }
