@@ -12,7 +12,7 @@ namespace DemoEFCoreWinforms.Models
     {
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			optionsBuilder.UseSqlServer("Data Source=DESKTOP-75L2R7E\\SQLEXPRESS;Initial Catalog=DemoWinForms2;Integrated Security=True")
+			optionsBuilder.UseSqlServer("Data Source=DESKTOP-75L2R7E\\SQLEXPRESS;Initial Catalog=EFCore_Mod3;Integrated Security=True")
 				.EnableSensitiveDataLogging(true)
 				.UseLoggerFactory(MyLoggerFactory);
 		}
@@ -28,6 +28,7 @@ namespace DemoEFCoreWinforms.Models
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			modelBuilder.Entity<Student>().Property(x => x.Name).HasField("_name");
+			modelBuilder.Entity<Student>().HasQueryFilter(x => x.ItsErased == false);
 			base.OnModelCreating(modelBuilder);
 		}
 		

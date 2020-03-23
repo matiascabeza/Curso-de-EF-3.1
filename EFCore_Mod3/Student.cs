@@ -22,7 +22,8 @@ namespace DemoEFCoreWinforms.Models
             }
 
         }
-        
         public DateTime DateBirth { get; set; }
+        public bool ItsErased { get; set; }
+
     }
 }

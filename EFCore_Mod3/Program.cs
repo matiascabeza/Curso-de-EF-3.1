@@ -3,19 +3,14 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EFCore_Mod3
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-            DeleteConnectRegistry();
-        }
+        static void Main(string[] args) { FilterLevelModel(); }
 
-        static void InsertRegistros() 
+        static void InsertRegistros()
         {
             using (var context = new ApplicationDbContext())
             {
@@ -31,6 +26,7 @@ namespace EFCore_Mod3
                 context.SaveChanges();
             }
         }
+
         static void InsertMultipleRegistros()
         {
             using (var context = new ApplicationDbContext())
@@ -38,20 +34,17 @@ namespace EFCore_Mod3
                 // paso 1: Creamos el Objecto
                 var student1 = new Student();
                 student1.Name = "Felipe Gavilán";
-                student1.DateBirth = new DateTime(1934, 7, 20); 
+                student1.DateBirth = new DateTime(1934, 7, 20);
                 var student2 = new Student();
                 student1.Name = "Matias Cabeza";
                 student1.DateBirth = new DateTime(1988, 5, 21);
 
                 IList<Student> list1 = new List<Student>() { student1, student2 };
                 IList<Student> list2 = new List<Student>();
-                for(int i = 0; i < 10; i++)
+                for (int i = 0; i < 10; i++)
                 {
                     list2.Add(new Student()
-                    {
-                        Name = "Estudiante " + i.ToString(),
-                        DateBirth = new DateTime(1900 + i, 1, 2)
-                    });
+                    { Name = "Estudiante " + i.ToString(), DateBirth = new DateTime(1900 + i, 1, 2) });
                 }
                 // paso 2: Notificamos que queremos agregar un estudiante
                 context.Students.AddRange(list1);
@@ -60,20 +53,20 @@ namespace EFCore_Mod3
                 // paso 3: Guardamos los mitos
                 context.SaveChanges();
             }
-
-
         }
+
         static void MapeoFlexible()
         {
             using (var context = new ApplicationDbContext())
             {
                 var student1 = new Student();
                 student1.Name = "jeLipe GaVilán";
-                student1.DateBirth = new DateTime(1934, 7, 20); 
+                student1.DateBirth = new DateTime(1934, 7, 20);
                 context.Students.Add(student1);
                 context.SaveChanges();
             }
         }
+
         static void ReadAllDataBase()
         {
             using (var context = new ApplicationDbContext())
@@ -82,33 +75,32 @@ namespace EFCore_Mod3
                 var studens = context.Students.OrderByDescending(x => x.DateBirth).ThenBy(x => x.Name).ToList();
             }
         }
+
         static void FirstAndFirstOrDefaultDataBase()
         {
             using (var context = new ApplicationDbContext())
             {
-                
                 //Da error si no hay registro  en la tabla estudiantes
                 var studens1 = context.Students.First(x => x.Name.StartsWith("Felipe"));
 
                 //Trae nulo si no existen registros en la tabla estudiantes
                 var studens2 = context.Students.FirstOrDefault(x => x.Name.StartsWith("Felipe"));
-
             }
         }
+
         static void SelectColumnsName()
         {
             using (var context = new ApplicationDbContext())
             {
-
                 //Trae solo el nombre
                 var studens1 = context.Students.Select(x => x.Name).FirstOrDefault();
                 //Proyeccion a un tipo anonimo
-                var studens2 = context.Students.Select(x => new { x.Id, x.Name}).ToList();
+                var studens2 = context.Students.Select(x => new { x.Id, x.Name }).ToList();
                 //Proyeccion a una clase
-                var studens3 = context.Students.Select(x => new Student {Id = x.Id, Name = x.Name }).ToList();
-
+                var studens3 = context.Students.Select(x => new Student { Id = x.Id, Name = x.Name }).ToList();
             }
         }
+
         static void FilterRegistry()
         {
             using (var context = new ApplicationDbContext())
@@ -127,7 +119,6 @@ namespace EFCore_Mod3
                 studens1.Name = "Matias";
                 context.SaveChanges();
             }
-
         }
 
         static void UpdateModeDesConnectRegistry()
@@ -163,15 +154,13 @@ namespace EFCore_Mod3
             using (var context = new ApplicationDbContext())
             {
                 var student = context.Students.FirstOrDefault();
-                if(student != null) {
+                if (student != null)
+                {
                     Console.WriteLine($"Estudiante a ser removido: { student.Name}");
                     context.Remove(student);
                     context.SaveChanges();
                 }
-
             }
-
-            
         }
 
         static void DeleteDesConnectRegistry()
@@ -190,11 +179,15 @@ namespace EFCore_Mod3
                 context.Entry(student).State = EntityState.Deleted;
                 context.SaveChanges();
             }
-
-
-
         }
-
-
+        static void FilterLevelModel()
+        {
+            //Elimina el registro en modelo desconectado
+            using (var context = new ApplicationDbContext())
+            {
+                var studens1 = context.Students.ToList();
+                var studens2 = context.Students.IgnoreQueryFilters().ToList();
+            }
+        }
     }
 }
