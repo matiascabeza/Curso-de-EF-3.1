@@ -1,4 +1,5 @@
 ﻿using DemoEFCoreWinforms.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace EFCore_Mod3
     {
         static void Main(string[] args)
         {
-            SelectColumnsName();
+            UpdateModeDesConnectRegistry();
         }
 
         static void InsertRegistros() 
@@ -94,7 +95,6 @@ namespace EFCore_Mod3
 
             }
         }
-
         static void SelectColumnsName()
         {
             using (var context = new ApplicationDbContext())
@@ -107,6 +107,53 @@ namespace EFCore_Mod3
                 //Proyeccion a una clase
                 var studens3 = context.Students.Select(x => new Student {Id = x.Id, Name = x.Name }).ToList();
 
+            }
+        }
+        static void FilterRegistry()
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                var studens1 = context.Students.Where(x => x.Id == 5).FirstOrDefault();
+                var studens2 = context.Students.Where(x => x.DateBirth <= DateTime.Today.AddYears(-30)).ToList();
+            }
+        }
+
+        static void UpdateModeConnectRegistry()
+        {
+            //Actulizacion de registro en modelo conectado
+            using (var context = new ApplicationDbContext())
+            {
+                var studens1 = context.Students.First(x => x.Name.StartsWith("Felipe"));
+                studens1.Name = "Matias";
+                context.SaveChanges();
+            }
+
+        }
+
+        static void UpdateModeDesConnectRegistry()
+        {
+            //Actulizacion de registro en modelo desconectado
+            Student matias;
+            using (var context = new ApplicationDbContext())
+            {
+                matias = context.Students.First(x => x.Name.StartsWith("Matias"));
+            }
+
+            matias.Name += " Purcell";
+
+            //Se fija cual es la propiedad que se modifico y la actualiza
+            using (var context = new ApplicationDbContext())
+            {
+                context.Entry(matias).State = EntityState.Modified;
+                context.SaveChanges();
+            }
+
+            //Solo actualiza el nombre de la propiedad
+            using (var context = new ApplicationDbContext())
+            {
+                var entrada = context.Attach(matias);
+                entrada.Property(x => x.Name).IsModified = true;
+                context.SaveChanges();
             }
         }
 
