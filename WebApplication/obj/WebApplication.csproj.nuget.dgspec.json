@@ -1,32 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mcabeza\\Documents\\Curso-de-EF-3.1\\WebApplication\\WebApplication.csproj": {}
+    "C:\\Users\\Matias\\source\\repos\\DemoEFCoreWinforms\\WebApplication\\WebApplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mcabeza\\Documents\\Curso-de-EF-3.1\\WebApplication\\WebApplication.csproj": {
+    "C:\\Users\\Matias\\source\\repos\\DemoEFCoreWinforms\\WebApplication\\WebApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mcabeza\\Documents\\Curso-de-EF-3.1\\WebApplication\\WebApplication.csproj",
+        "projectUniqueName": "C:\\Users\\Matias\\source\\repos\\DemoEFCoreWinforms\\WebApplication\\WebApplication.csproj",
         "projectName": "WebApplication",
-        "projectPath": "C:\\Users\\mcabeza\\Documents\\Curso-de-EF-3.1\\WebApplication\\WebApplication.csproj",
-        "packagesPath": "C:\\Users\\mcabeza\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mcabeza\\Documents\\Curso-de-EF-3.1\\WebApplication\\obj\\",
+        "projectPath": "C:\\Users\\Matias\\source\\repos\\DemoEFCoreWinforms\\WebApplication\\WebApplication.csproj",
+        "packagesPath": "C:\\Users\\Matias\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Matias\\source\\repos\\DemoEFCoreWinforms\\WebApplication\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\mcabeza\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 18.2.config",
+          "C:\\Users\\Matias\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.2.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 18.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\DevExpress 19.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}

@@ -11,6 +11,7 @@ namespace EFCore_Mod3
     {
         static void Main(string[] args)
         {
+            FirstAndFirstOrDefaultDataBase();
         }
 
         static void InsertRegistros() 
@@ -29,7 +30,6 @@ namespace EFCore_Mod3
                 context.SaveChanges();
             }
         }
-
         static void InsertMultipleRegistros()
         {
             using (var context = new ApplicationDbContext())
@@ -62,5 +62,39 @@ namespace EFCore_Mod3
 
 
         }
+        static void MapeoFlexible()
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                var student1 = new Student();
+                student1.Name = "jeLipe GaVilán";
+                student1.DateBirth = new DateTime(1934, 7, 20); 
+                context.Students.Add(student1);
+                context.SaveChanges();
+            }
+        }
+        static void ReadAllDataBase()
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                //var studens = context.Students.ToList();
+                var studens = context.Students.OrderByDescending(x => x.DateBirth).ThenBy(x => x.Name).ToList();
+            }
+        }
+
+        static void FirstAndFirstOrDefaultDataBase()
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                
+                //Da error si no hay registro  en la tabla estudiantes
+                var studens1 = context.Students.First(x => x.Name.StartsWith("Felipe"));
+
+                //Trae nulo si no existen registros en la tabla estudiantes
+                var studens2 = context.Students.FirstOrDefault(x => x.Name.StartsWith("Felipe"));
+
+            }
+        }
+
     }
 }

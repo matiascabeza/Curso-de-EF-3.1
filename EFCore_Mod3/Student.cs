@@ -9,7 +9,20 @@ namespace DemoEFCoreWinforms.Models
     class Student
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        private string _name;
+        public string Name 
+        {
+            get 
+            {
+                return _name;
+            }
+            set 
+            {
+                _name = string.Join("", value.Split(' ').Select(x => x[0].ToString().ToUpper() + x.Substring(1).ToLower()).ToArray());
+            }
+
+        }
+        
         public DateTime DateBirth { get; set; }
     }
 }

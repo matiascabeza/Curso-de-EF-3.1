@@ -24,6 +24,12 @@ namespace DemoEFCoreWinforms.Models
 				   category == DbLoggerCategory.Database.Command.Name
 				   && level == LogLevel.Information).AddConsole();
 		});
+
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			modelBuilder.Entity<Student>().Property(x => x.Name).HasField("_name");
+			base.OnModelCreating(modelBuilder);
+		}
 		
 		public DbSet<Student> Students { get; set; }
 		
