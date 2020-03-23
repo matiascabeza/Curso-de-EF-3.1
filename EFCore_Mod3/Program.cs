@@ -9,7 +9,7 @@ namespace EFCore_Mod3
 {
     class Program
     {
-        static void Main(string[] args) { FromSqRawlRegistry(); }
+        static void Main(string[] args) { FromSqlInterpolated(); }
 
         static void InsertRegistros()
         {
@@ -228,6 +228,18 @@ namespace EFCore_Mod3
             {
                 var report1 = context.Students
                     .FromSqlRaw(@"SELECT * FROM Students" )
+                    .FirstOrDefault();
+            }
+        }
+
+        static void FromSqlInterpolated()
+        {
+            var Id = 4;
+            //Reporte de registros con GroupBy
+            using (var context = new ApplicationDbContext())
+            {
+                var report1 = context.Students
+                    .FromSqlInterpolated($"SELECT * FROM Students WHERE Id = {Id}")
                     .FirstOrDefault();
             }
         }
