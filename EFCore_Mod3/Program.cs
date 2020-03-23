@@ -11,7 +11,7 @@ namespace EFCore_Mod3
     {
         static void Main(string[] args)
         {
-            FirstAndFirstOrDefaultDataBase();
+            SelectColumnsName();
         }
 
         static void InsertRegistros() 
@@ -81,7 +81,6 @@ namespace EFCore_Mod3
                 var studens = context.Students.OrderByDescending(x => x.DateBirth).ThenBy(x => x.Name).ToList();
             }
         }
-
         static void FirstAndFirstOrDefaultDataBase()
         {
             using (var context = new ApplicationDbContext())
@@ -95,6 +94,22 @@ namespace EFCore_Mod3
 
             }
         }
+
+        static void SelectColumnsName()
+        {
+            using (var context = new ApplicationDbContext())
+            {
+
+                //Trae solo el nombre
+                var studens1 = context.Students.Select(x => x.Name).FirstOrDefault();
+                //Proyeccion a un tipo anonimo
+                var studens2 = context.Students.Select(x => new { x.Id, x.Name}).ToList();
+                //Proyeccion a una clase
+                var studens3 = context.Students.Select(x => new Student {Id = x.Id, Name = x.Name }).ToList();
+
+            }
+        }
+
 
     }
 }
