@@ -12,7 +12,7 @@ namespace EFCore_Mod3
     {
         static void Main(string[] args)
         {
-            UpdateModeDesConnectRegistry();
+            DeleteConnectRegistry();
         }
 
         static void InsertRegistros() 
@@ -155,6 +155,44 @@ namespace EFCore_Mod3
                 entrada.Property(x => x.Name).IsModified = true;
                 context.SaveChanges();
             }
+        }
+
+        static void DeleteConnectRegistry()
+        {
+            //Elimina el registro en modelo desconectado
+            using (var context = new ApplicationDbContext())
+            {
+                var student = context.Students.FirstOrDefault();
+                if(student != null) {
+                    Console.WriteLine($"Estudiante a ser removido: { student.Name}");
+                    context.Remove(student);
+                    context.SaveChanges();
+                }
+
+            }
+
+            
+        }
+
+        static void DeleteDesConnectRegistry()
+        {
+            //Eliminar de registro en modelo desconectado
+            Student student;
+            using (var context = new ApplicationDbContext())
+            {
+                student = context.Students.FirstOrDefault();
+            }
+
+            using (var context = new ApplicationDbContext())
+            {
+                var student1 = new Student();
+                student1.Id = student.Id;
+                context.Entry(student).State = EntityState.Deleted;
+                context.SaveChanges();
+            }
+
+
+
         }
 
 
