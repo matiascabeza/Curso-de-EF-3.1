@@ -8,7 +8,7 @@ namespace EFCore_Mod3
 {
     class Program
     {
-        static void Main(string[] args) { PaginationSkipAndTake(); }
+        static void Main(string[] args) { GroupByRegistry(); }
 
         static void InsertRegistros()
         {
@@ -200,6 +200,22 @@ namespace EFCore_Mod3
                 var show = 1;
 
                 var studens2 = context.Students.Skip((pagination - 1) * show).Take(show).ToList();
+            }
+        }
+
+        static void GroupByRegistry()
+        {
+            //Reporte de registros con GroupBy
+            using (var context = new ApplicationDbContext())
+            {
+                var report1 = context.Students.IgnoreQueryFilters()
+                    .GroupBy(x => new { x.ItsErased })
+                    .Select(x => new { x.Key, Count = x.Count()}).ToList();
+
+                var report2 = context.Students.IgnoreQueryFilters()
+                    .GroupBy(x => new { x.DateBirth.Year })
+                    .Where( x=> x.Count() >= 2)
+                    .Select(x => new { x.Key, Count = x.Count() }).ToList();
             }
         }
     }
