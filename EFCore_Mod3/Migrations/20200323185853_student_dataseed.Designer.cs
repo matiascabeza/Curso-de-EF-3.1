@@ -4,14 +4,16 @@ using DemoEFCoreWinforms.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EFCore_Mod3.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200323185853_student_dataseed")]
+    partial class student_dataseed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,6 +48,13 @@ namespace EFCore_Mod3.Migrations
                             DateBirth = new DateTime(1999, 2, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ItsErased = false,
                             Name = "JuanCarlos"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            DateBirth = new DateTime(1991, 2, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ItsErased = false,
+                            Name = "RamoSebastian"
                         });
                 });
 #pragma warning restore 612, 618

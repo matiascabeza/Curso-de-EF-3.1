@@ -27,6 +27,8 @@ namespace DemoEFCoreWinforms.Models
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
+			var student1 = new Student() { Id = 25, Name = "Juan Carlos", DateBirth = new DateTime(1999, 2, 3), ItsErased = false };
+			modelBuilder.Entity<Student>().HasData(new Student[] { student1 });
 			modelBuilder.Entity<Student>().Property(x => x.Name).HasField("_name");
 			modelBuilder.Entity<Student>().HasQueryFilter(x => x.ItsErased == false);
 			base.OnModelCreating(modelBuilder);

@@ -154,6 +154,14 @@
     <Compile Include="Migrations\20200323062507_student-itsErased.designer.cs">
       <DependentUpon>20200323062507_student-itsErased.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20200323185853_student_dataseed.cs" />
+    <Compile Include="Migrations\20200323185853_student_dataseed.designer.cs">
+      <DependentUpon>20200323185853_student_dataseed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20200323190020_student_remove.cs" />
+    <Compile Include="Migrations\20200323190020_student_remove.designer.cs">
+      <DependentUpon>20200323190020_student_remove.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\ApplicationDbContextModelSnapshot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
