@@ -15,7 +15,10 @@ namespace EFCore_Mod4
             //EagerLoading();
             //LazyLoading();
             //RelatedUnotoUno();
-            RelatedOneToMany();
+            //RelatedOneToMany();
+            //InsertCourses();
+            //RelatedManyToMany();
+            ReadRelatedManyToMany();
         }
 
         static void InsertDataRelated()
@@ -83,6 +86,55 @@ namespace EFCore_Mod4
             using (var context = new ApplicationDbContext())
             {
                 var students = context.Students.Include(x => x.Detail).ToList();
+            }
+        }
+
+        static void InsertCourses()
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                var course1 = new Course();
+                course1.Name = "Programacion";
+                var course2 = new Course();
+                course2.Name = "Calculo";
+                var course3 = new Course();
+                course3.Name = "Estadistica";
+
+                context.AddRange(new Course[] { course1, course2, course3 });
+                context.SaveChanges();
+            }
+        }
+
+        static void RelatedManyToMany()
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                var course1 = context.Courses.First();
+                var student1 = context.Students.First();
+
+                var studentCourse = new StudentCourse();
+                studentCourse.CourseId = course1.Id;
+                studentCourse.StudentId = student1.Id;
+
+                context.Add(studentCourse);
+                context.SaveChanges();
+            }
+        }
+
+        static void ReadRelatedManyToMany()
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                //Traemos toda la data de estudiantecursos
+                var studentCoursesAll = context.StudentCourses.ToList();
+
+                //Traemos toda la data de estudiamtecursos incluyendo la informacion de los estudiantes y cursos
+                var studentCoursesRelated = context.StudentCourses.Include(x => x.Student).Include(x => x.Course).ToList();
+                var studentId = context.Students.Select(x=> x.Id).First();
+
+                //Traemos todos los cursos de un estudiante especifico
+                var studentCourses = context.StudentCourses.Where(x => x.StudentId == studentId).Include(x => x.Course).ToList();
+
             }
         }
 

@@ -42,6 +42,21 @@ namespace EFCore_Mod4.Migrations
                     b.ToTable("Contacts");
                 });
 
+            modelBuilder.Entity("EFCore_Mod4.Course", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Courses");
+                });
+
             modelBuilder.Entity("EFCore_Mod4.Student", b =>
                 {
                     b.Property<int>("Id")
@@ -74,6 +89,24 @@ namespace EFCore_Mod4.Migrations
                         });
                 });
 
+            modelBuilder.Entity("EFCore_Mod4.StudentCourse", b =>
+                {
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StudentId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.HasKey("CourseId", "StudentId");
+
+                    b.HasIndex("StudentId");
+
+                    b.ToTable("StudentCourses");
+                });
+
             modelBuilder.Entity("EFCore_Mod4.StudentDetail", b =>
                 {
                     b.Property<int>("Id")
@@ -99,6 +132,21 @@ namespace EFCore_Mod4.Migrations
                 {
                     b.HasOne("EFCore_Mod4.Student", "Student")
                         .WithMany("Contacts")
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EFCore_Mod4.StudentCourse", b =>
+                {
+                    b.HasOne("EFCore_Mod4.Course", "Course")
+                        .WithMany("StudentCourses")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EFCore_Mod4.Student", "Student")
+                        .WithMany("StudentCourses")
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

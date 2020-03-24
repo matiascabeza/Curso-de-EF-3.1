@@ -30,11 +30,14 @@ namespace EFCore_Mod4
 			var student1 = new Student() { Id = 1, Name = "Juan Carlos", DateBirth = new DateTime(1999, 2, 3) };
 			var student2 = new Student() { Id = 2, Name = "Pepe Juan", DateBirth = new DateTime(1999, 2, 3)};
 			modelBuilder.Entity<Student>().HasData(new Student[] { student1, student2 });
+			modelBuilder.Entity<StudentCourse>().HasKey(x => new { x.CourseId, x.StudentId });
 			base.OnModelCreating(modelBuilder);
 		}
 		public DbSet<Student> Students { get; set; }
 		public DbSet<Contact> Contacts { get; set; }
 		public DbSet<StudentDetail> StudentDetails { get; set; }
+		public DbSet<Course> Courses { get; set; }
+		public DbSet<StudentCourse> StudentCourses { get; set; }
 		
 	}
 }

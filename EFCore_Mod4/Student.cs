@@ -13,6 +13,8 @@ namespace EFCore_Mod4
         public DateTime DateBirth { get; set; }
         public List<Contact> Contacts { get; set; }
         public StudentDetail Detail { get; set; }
+        public List<StudentCourse> StudentCourses { get; set; }
+
 
     }
 }
