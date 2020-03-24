@@ -76,3 +76,7 @@ C:\Users\Matias\source\repos\DemoEFCoreWinforms\EFCore_Mod4\obj\Debug\EFCore_Mod
 C:\Users\Matias\source\repos\DemoEFCoreWinforms\EFCore_Mod4\obj\Debug\EFCore_Mod4.pdb
 C:\Users\Matias\source\repos\DemoEFCoreWinforms\EFCore_Mod4\bin\Debug\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\Matias\source\repos\DemoEFCoreWinforms\EFCore_Mod4\bin\Debug\Microsoft.EntityFrameworkCore.Design.xml
+C:\Users\Matias\source\repos\DemoEFCoreWinforms\EFCore_Mod4\bin\Debug\Castle.Core.dll
+C:\Users\Matias\source\repos\DemoEFCoreWinforms\EFCore_Mod4\bin\Debug\Microsoft.EntityFrameworkCore.Proxies.dll
+C:\Users\Matias\source\repos\DemoEFCoreWinforms\EFCore_Mod4\bin\Debug\Castle.Core.xml
+C:\Users\Matias\source\repos\DemoEFCoreWinforms\EFCore_Mod4\bin\Debug\Microsoft.EntityFrameworkCore.Proxies.xml

@@ -13,7 +13,9 @@ namespace EFCore_Mod4
         {
             //InsertDataRelated();
             //EagerLoading();
-            LazyLoading();
+            //LazyLoading();
+            //RelatedUnotoUno();
+            RelatedOneToMany();
         }
 
         static void InsertDataRelated()
@@ -47,15 +49,40 @@ namespace EFCore_Mod4
         {
             using (var context = new ApplicationDbContext())
             {
-                // Opcion 1: Include con expresion lambda
                 var student = context.Students.FirstOrDefault();
-                // Opcion 2: Include con expresion lambda
                 var contacts = student.Contacts.ToList();
+                //Ya cargado los contactos ef no cargara de nuevo los contactos
                 foreach(var contact in student.Contacts)
                 {
 
 
                 }
+            }
+        }
+
+        static void RelatedUnotoUno()
+        {
+            int studentId;
+            using (var context = new ApplicationDbContext())
+            {
+                studentId = context.Students.Select(x => x.Id).FirstOrDefault();
+            }
+            using (var context = new ApplicationDbContext())
+            {
+                var studentDetails = new StudentDetail();
+
+                studentDetails.Identification = "123-456789-1";
+                studentDetails.StudentId = studentId;
+                context.StudentDetails.Add(studentDetails);
+                context.SaveChanges();
+            }
+        }
+
+        static void RelatedOneToMany()
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                var students = context.Students.Include(x => x.Detail).ToList();
             }
         }
 

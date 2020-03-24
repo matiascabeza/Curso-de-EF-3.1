@@ -14,7 +14,7 @@ namespace EFCore_Mod4
 		{
 			optionsBuilder.UseSqlServer("Data Source=DESKTOP-75L2R7E\\SQLEXPRESS;Initial Catalog=EFCore_Mod4;Integrated Security=True")
 				.EnableSensitiveDataLogging(true)
-				.UseLazyLoadingProxies()
+				//.UseLazyLoadingProxies()
 				.UseLoggerFactory(MyLoggerFactory);
 		}
 		public static readonly ILoggerFactory MyLoggerFactory = LoggerFactory.Create(builder =>
@@ -34,6 +34,7 @@ namespace EFCore_Mod4
 		}
 		public DbSet<Student> Students { get; set; }
 		public DbSet<Contact> Contacts { get; set; }
+		public DbSet<StudentDetail> StudentDetails { get; set; }
 		
 	}
 }
