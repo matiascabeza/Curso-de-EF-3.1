@@ -12,7 +12,8 @@ namespace EFCore_Mod4
         static void Main(string[] args)
         {
             //InsertDataRelated();
-            EagerLoading();
+            //EagerLoading();
+            LazyLoading();
         }
 
         static void InsertDataRelated()
@@ -39,6 +40,22 @@ namespace EFCore_Mod4
                 var student1 = context.Students.Include(x => x.Contacts).ToList();
                 // Opcion 2: Include con expresion lambda
                 var student2 = context.Students.Include("Contacts").ToList();
+            }
+        }
+
+        static void LazyLoading()
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                // Opcion 1: Include con expresion lambda
+                var student = context.Students.FirstOrDefault();
+                // Opcion 2: Include con expresion lambda
+                var contacts = student.Contacts.ToList();
+                foreach(var contact in student.Contacts)
+                {
+
+
+                }
             }
         }
 

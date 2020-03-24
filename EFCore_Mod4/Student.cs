@@ -11,7 +11,7 @@ namespace EFCore_Mod4
         public int Id { get; set; }
         public string Name { get; set; }
         public DateTime DateBirth { get; set; }
-        public List<Contact> Contacts { get; set; }
+        public virtual List<Contact> Contacts { get; set; }
 
     }
 }

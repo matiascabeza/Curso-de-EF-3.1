@@ -12,6 +12,6 @@ namespace EFCore_Mod4
         public string  Name { get; set; }
         public string Relation { get; set; }
         public int StudentId { get; set; }
-        public Student Student { get; set; }
+        public virtual Student Student { get; set; }
     }
 }
