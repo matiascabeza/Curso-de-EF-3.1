@@ -18,7 +18,14 @@ namespace EFCore_Mod4
 
     public class StudentScholar : Student
     {
+        public Beca Beca { get; set; }
+    }
+
+    public class Beca
+    {
+        public int Id { get; set; }
         public string InstitutionThatAwardsTheScholarship { get; set; }
+        public decimal PercentageAwarded { get; set; }
     }
 
     public class StudentNotScholar : Student

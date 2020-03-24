@@ -20,7 +20,8 @@ namespace EFCore_Mod4
             //RelatedManyToMany();
             //ReadRelatedManyToMany();
             //InsertInheritance();
-            StudentAll();
+            //StudentAll();
+            TypeDerivados();
         }
 
         static void InsertDataRelated()
@@ -151,7 +152,7 @@ namespace EFCore_Mod4
                 var studentScholar = new StudentScholar();
                 studentScholar.Name = "Fabio Medina";
                 studentScholar.DateBirth = new DateTime(1988, 3, 5);
-                studentScholar.InstitutionThatAwardsTheScholarship = "OEA";
+               // studentScholar.InstitutionThatAwardsTheScholarship = "OEA";
 
                 var studentNotScholar = new StudentNotScholar();
                 studentNotScholar.Name = "Sergio Castaña";
@@ -172,8 +173,23 @@ namespace EFCore_Mod4
                 var studentCoursesAll = context.Students.ToList();
                 var studentScholar = context.Students.OfType<StudentScholar>().ToList();
                 var studentNotScholar = context.Students.OfType<StudentNotScholar>().ToList();
-
             }
+        }
+
+        static void TypeDerivados()
+        {
+            using (var context = new ApplicationDbContext())
+            {
+
+                // Trae todos los estudiantes, y sus becas (si aplica)
+                var allStudents = context.Students
+                .Include(x => (x as StudentScholar).Beca).ToList();
+
+                // Trae sólo los estudiantes becados con sus becas
+                var scholarshipStudents = context.Students.OfType<StudentScholar>()
+                .Include(x => x.Beca).ToList();
+            }
+
         }
 
     }
