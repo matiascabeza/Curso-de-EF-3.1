@@ -9,8 +9,8 @@ namespace EFCore_Mod4
     public class Contact
     {
         public int Id { get; set; }
-        public int Name { get; set; }
-        public int Relation { get; set; }
+        public string  Name { get; set; }
+        public string Relation { get; set; }
         public int StudentId { get; set; }
         public Student Student { get; set; }
     }
