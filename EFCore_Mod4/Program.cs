@@ -18,7 +18,9 @@ namespace EFCore_Mod4
             //RelatedOneToMany();
             //InsertCourses();
             //RelatedManyToMany();
-            ReadRelatedManyToMany();
+            //ReadRelatedManyToMany();
+            //InsertInheritance();
+            StudentAll();
         }
 
         static void InsertDataRelated()
@@ -134,6 +136,42 @@ namespace EFCore_Mod4
 
                 //Traemos todos los cursos de un estudiante especifico
                 var studentCourses = context.StudentCourses.Where(x => x.StudentId == studentId).Include(x => x.Course).ToList();
+
+            }
+        }
+
+        static void InsertInheritance()
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                var student = new Student();
+                student.Name = "Fabio Medina";
+                student.DateBirth = new DateTime(1988, 3, 5);
+
+                var studentScholar = new StudentScholar();
+                studentScholar.Name = "Fabio Medina";
+                studentScholar.DateBirth = new DateTime(1988, 3, 5);
+                studentScholar.InstitutionThatAwardsTheScholarship = "OEA";
+
+                var studentNotScholar = new StudentNotScholar();
+                studentNotScholar.Name = "Sergio Castaña";
+                studentNotScholar.DateBirth = new DateTime(1988, 3, 5);
+
+                context.Add(student);
+                context.Add(studentScholar);
+                context.Add(studentNotScholar);
+                context.SaveChanges();
+            }
+        }
+
+        static void StudentAll()
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                //Traemos toda la data de estudiantecursos
+                var studentCoursesAll = context.Students.ToList();
+                var studentScholar = context.Students.OfType<StudentScholar>().ToList();
+                var studentNotScholar = context.Students.OfType<StudentNotScholar>().ToList();
 
             }
         }

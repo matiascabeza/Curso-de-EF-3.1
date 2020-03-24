@@ -38,6 +38,8 @@ namespace EFCore_Mod4
 		public DbSet<StudentDetail> StudentDetails { get; set; }
 		public DbSet<Course> Courses { get; set; }
 		public DbSet<StudentCourse> StudentCourses { get; set; }
+		public DbSet<StudentScholar> StudentScholars { get; set; }
+		public DbSet<StudentNotScholar> StudentNotScholars { get; set; }
 		
 	}
 }

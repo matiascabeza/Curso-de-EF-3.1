@@ -183,6 +183,10 @@
     <Compile Include="Migrations\20200324062911_isactivo.designer.cs">
       <DependentUpon>20200324062911_isactivo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20200324183024_estudiantes_becado.cs" />
+    <Compile Include="Migrations\20200324183024_estudiantes_becado.designer.cs">
+      <DependentUpon>20200324183024_estudiantes_becado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\ApplicationDbContextModelSnapshot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -14,7 +14,14 @@ namespace EFCore_Mod4
         public List<Contact> Contacts { get; set; }
         public StudentDetail Detail { get; set; }
         public List<StudentCourse> StudentCourses { get; set; }
+    }
 
+    public class StudentScholar : Student
+    {
+        public string InstitutionThatAwardsTheScholarship { get; set; }
+    }
 
+    public class StudentNotScholar : Student
+    {
     }
 }
